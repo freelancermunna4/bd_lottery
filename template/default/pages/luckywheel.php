@@ -30,7 +30,7 @@
 							  <input  type="text" class="form-control"  id="coupon" maxlength="30" placeholder="CH5I88Le6" />
 							</div>
 						
-							<div class="form-group col-md-6 .a">
+					 		<div class="form-group col-md-6 .a">
 							  <label for="ad_visits">Enter Your Recharge Mobile No</label>
 							  <input  type="text" class="form-control"  id="mobileno" maxlength="30" placeholder="your Phone No" />
 							</div>
