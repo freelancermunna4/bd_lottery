@@ -27,7 +27,7 @@
 		
 		<div class="col-md-9 col-sm-7 col-xs-7">
 
-			<div class="my-3 ml-2 p-3 bg-white rounded box-shadow box-style">
+			<div class="my-3 ml-2 p-3 bg-white rounded box-shadow box-style"> 
                    <div id="top-ads" class="my-3 p-3 bg-white rounded box-shadow box-style"></div> 
 				   
 		<div class="main-div">
