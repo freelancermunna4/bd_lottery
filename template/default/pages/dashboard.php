@@ -23,7 +23,7 @@
 						<div class="clearfix"></div>
 					</div>
 				  </div>
-				</div>
+				</div> 
 				<div class="col-md-6 p-1">
 				  <div id="dashboard-info">
 					<h1 class="text-warning"><?php echo $lang['b_97']; ?></h1>
