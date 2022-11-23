@@ -130,7 +130,7 @@ if(! defined('BASEPATH') ){ exit('Unable to view file.'); }
 		$_thirdWinner="";
 		$_fourthWinner="";
 		$_fifthWinner="";
-		$_sixthdWinner="";
+		$_sixthWinner="";
 		$_seventhWinner="";
 		$_eighthWinner="";
 		$_ninthWinner="";
@@ -138,28 +138,28 @@ if(! defined('BASEPATH') ){ exit('Unable to view file.'); }
 			$_firstWinner=$db->EscapeString($_POST['fprice']);
 		}
 		if(isset($_POST['sprice'])){
-			$_secondWinner=$db->EscapeString($_POST['sprice']);
+		$_secondWinner=$db->EscapeString($_POST['sprice']);
 		}
 		if(isset($_POST['tprice'])){
-			$_thirdWinner=$db->EscapeString($_POST['tprice']);
+		$_thirdWinner=$db->EscapeString($_POST['tprice']);
 		}
 		if(isset($_POST['frprice'])){
-			$_fourthWinner=$db->EscapeString($_POST['frprice']);
+		$_fourthWinner=$db->EscapeString($_POST['frprice']);
 		}
 		if(isset($_POST['fvprice'])){
-			$_fifthWinner=$db->EscapeString($_POST['fvprice']);
+		$_fifthWinner=$db->EscapeString($_POST['fvprice']);
 		}
 		if(isset($_POST['sxprice'])){
-			$_sixthdWinner=$db->EscapeString($_POST['sxprice']);
+		$_sixthWinner=$db->EscapeString($_POST['sxprice']);
 		}
 		if(isset($_POST['svprice'])){
-			$_seventhWinner=$db->EscapeString($_POST['svprice']);
+		$_seventhWinner=$db->EscapeString($_POST['svprice']);
 		}
 		if(isset($_POST['etprice'])){
-			$_eighthWinner=$db->EscapeString($_POST['etprice']);
+		$_eighthWinner=$db->EscapeString($_POST['etprice']);
 		}
 		if(isset($_POST['nnprice'])){
-			$_ninthWinner=$db->EscapeString($_POST['nnprice']);
+		$_ninthWinner=$db->EscapeString($_POST['nnprice']);
 		}
 
 
@@ -186,11 +186,11 @@ if(! defined('BASEPATH') ){ exit('Unable to view file.'); }
 		}
 
 		if (!empty($_fourthWinner)) {
-			$fourthWinner=$db->QueryFetchArray("SELECT * FROM `lottarybuy` WHERE lottaryNumber=$_fourthWinner");
+		 	$fourthWinner=$db->QueryFetchArray("SELECT * FROM `lottarybuy` WHERE lottaryNumber=$_fourthWinner");
 		}
 
-		if (!empty($_fifthdWinner)) {
-			$fifhWinner=$db->QueryFetchArray("SELECT * FROM `lottarybuy` WHERE lottaryNumber=$_fifthdWinner");
+		if (!empty($_fifthWinner)) {
+			$fifthWinner=$db->QueryFetchArray("SELECT * FROM `lottarybuy` WHERE lottaryNumber=$_fifthWinner");
 		}
 
 		if (!empty($_sixthWinner)) {
@@ -208,86 +208,63 @@ if(! defined('BASEPATH') ){ exit('Unable to view file.'); }
 		if (!empty($_ninthWinner)) {
 			$ninthWinner=$db->QueryFetchArray("SELECT * FROM `lottarybuy` WHERE lottaryNumber=$_ninthWinner");
 		}
-
-
-
 		$lotterysetting=$db->QueryFetchArray("SELECT * FROM `lottery_setting` LIMIT 1");
 		$curentTime=time();
 		$db->Query("DELETE FROM `last3winner`");
 		$db->Query("DELETE FROM `showwinner`");
 		
-
-
-		// if(!empty($firstWinner)){
-		// 	$_userid=$firstWinner['userid'];
-		// 	$_lottaryNumber=$firstWinner['lottaryNumber'];
-		// 	$lottary=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='First' LIMIT 1");	
-		// 	$dummyuser=$db->QueryFetchArray("SELECT * FROM `users`  WHERE id=$_userid LIMIT 1");			
-		
-		// 	$Price=$lottary['pricevalue'];
-		// 	$price_name=$lottary['price_name'];
-		// 	$first_secon=$lottary['first_secon'];
-
-		// 	$userName=$dummyuser['username'];
-		// 	$userCoin=$dummyuser['coins'];
-		// 	$finalCoin=$userCoin+$Price;
-
-		// 	$db->Query("INSERT INTO `lottary_winner`(`userid`, `username`, `priceName`,`price`, `number`, `tim`) VALUES ($_userid,'$userName','$price_name','$Price',$_lottaryNumber,$curentTime)");
-		// 	$db->Query("INSERT INTO `last3winner`(`userid`, `username`,`number`,`firstSecond`, `price`, `priceValue`, `time`) VALUES ($_userid,'$userName','$_lottaryNumber','$first_secon','$price_name','$Price',$curentTime)");
-		// 	$db->Query("UPDATE `users` SET`coins`=$finalCoin WHERE id=$_userid");
-		// 	$db->Query("INSERT INTO `showwinner`(`usrid`, `username`, `firstSecond`, `pricename`, `number`) VALUES ($_userid,'$userName','First','$price_name',$_lottaryNumber)");
-
-		// }
 		
 
-		// if(!empty($secondWinner)){
-		// 	$_userid=$secondWinner['userid'];
-		// 	$_lottaryNumber=$secondWinner['lottaryNumber'];
-		// 	$lottary=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='Second' LIMIT 1");
-		// 	$dummyuser=$db->QueryFetchArray("SELECT * FROM `users`  WHERE id=$_userid LIMIT 1");
-
-		// 	$Price=$lottary['pricevalue'];
-		// 	$price_name=$lottary['price_name'];
-		// 	$first_secon=$lottary['first_secon'];
-
-		// 	$userName=$dummyuser['username'];
-		// 	$userCoin=$dummyuser['coins'];
-		// 	$finalCoin=$userCoin+$Price;
-
-		// 	$db->Query("INSERT INTO `lottary_winner`(`userid`, `username`, `priceName`,`price`, `number`, `tim`) VALUES ($_userid,'$userName','$price_name','$Price',$_lottaryNumber,$curentTime)");
-
-		// 	$db->Query("INSERT INTO `last3winner`(`userid`, `username`,`number`,`firstSecond`, `price`, `priceValue`, `time`) VALUES ($_userid,'$userName','$_lottaryNumber','$first_secon','$price_name','$Price',$curentTime)");
-		// 	$db->Query("UPDATE `users` SET`coins`=$finalCoin WHERE id=$_userid");
-
-		// 	$db->Query("INSERT INTO `showwinner`(`usrid`, `username`, `firstSecond`, `pricename`, `number`) VALUES ($_userid,'$userName','Second','$price_name',$_lottaryNumber)");
-
-		// }
-
-
-		// if(!empty($thirdWinner)){
-		// 	$_userid=$thirdWinner['userid'];
-		// 	$_lottaryNumber=$thirdWinner['lottaryNumber'];
-		// 	$lottary=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='Third' LIMIT 1");	
-		// 	$dummyuser=$db->QueryFetchArray("SELECT * FROM `users`  WHERE id=$_userid LIMIT 1");			
+		if(!empty($firstWinner)){
+			$_userid=$firstWinner['userid'];
+			$_lottaryNumber=$firstWinner['lottaryNumber'];
+			$lottary=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='First' LIMIT 1");	
+			$dummyuser=$db->QueryFetchArray("SELECT * FROM `users`  WHERE id=$_userid LIMIT 1");			
 		
-		// 	$Price=$lottary['pricevalue'];
-		// 	$price_name=$lottary['price_name'];
-		// 	$first_secon=$lottary['first_secon'];
+			$Price=$lottary['pricevalue'];
+			$price_name=$lottary['price_name'];
+			$first_secon=$lottary['first_secon'];
 
-		// 	$userName=$dummyuser['username'];
-		// 	$userCoin=$dummyuser['coins'];
-		// 	$finalCoin=$userCoin+$Price;
+			$userName=$dummyuser['username'];
+			$userCoin=$dummyuser['coins'];
+			$finalCoin=$userCoin+$Price;
 
-		// 	$db->Query("INSERT INTO `lottary_winner`(`userid`, `username`, `priceName`,`price`, `number`, `tim`) VALUES ($_userid,'$userName','$price_name','$Price',$_lottaryNumber,$curentTime)");
-		// 	$db->Query("INSERT INTO `last3winner`(`userid`, `username`,`number`,`firstSecond`, `price`, `priceValue`, `time`) VALUES ($_userid,'$userName','$_lottaryNumber','$first_secon','$price_name','$Price',$curentTime)");
-		// 	$db->Query("UPDATE `users` SET`coins`=$finalCoin WHERE id=$_userid");			
-		// 	$db->Query("INSERT INTO `showwinner`(`usrid`, `username`, `firstSecond`, `pricename`, `number`) VALUES ($_userid,'$userName','Third','$price_name',$_lottaryNumber)");
-		// }
+			$db->Query("INSERT INTO `lottary_winner`(`userid`, `username`, `priceName`,`price`, `number`, `tim`) VALUES ($_userid,'$userName','$price_name','$Price',$_lottaryNumber,$curentTime)");
+			$db->Query("INSERT INTO `last3winner`(`userid`, `username`,`number`,`firstSecond`, `price`, `priceValue`, `time`) VALUES ($_userid,'$userName','$_lottaryNumber','$first_secon','$price_name','$Price',$curentTime)");
+			$db->Query("UPDATE `users` SET`coins`=$finalCoin WHERE id=$_userid");
+			$db->Query("INSERT INTO `showwinner`(`usrid`, `username`, `firstSecond`, `pricename`, `number`) VALUES ($_userid,'$userName','First','$price_name',$_lottaryNumber)");
 
-		if(!empty($fourthWinner)){
-			$_userid=$fourthWinner['userid'];
-			$_lottaryNumber=$fourthWinner['lottaryNumber'];
-			$lottary=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='Fourth' LIMIT 1");	
+		}
+		
+
+		if(!empty($secondWinner)){
+			$_userid=$secondWinner['userid'];
+			$_lottaryNumber=$secondWinner['lottaryNumber'];
+			$lottary=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='Second' LIMIT 1");
+			$dummyuser=$db->QueryFetchArray("SELECT * FROM `users`  WHERE id=$_userid LIMIT 1");
+
+			$Price=$lottary['pricevalue'];
+			$price_name=$lottary['price_name'];
+			$first_secon=$lottary['first_secon'];
+
+			$userName=$dummyuser['username'];
+			$userCoin=$dummyuser['coins'];
+			$finalCoin=$userCoin+$Price;
+
+			$db->Query("INSERT INTO `lottary_winner`(`userid`, `username`, `priceName`,`price`, `number`, `tim`) VALUES ($_userid,'$userName','$price_name','$Price',$_lottaryNumber,$curentTime)");
+
+			$db->Query("INSERT INTO `last3winner`(`userid`, `username`,`number`,`firstSecond`, `price`, `priceValue`, `time`) VALUES ($_userid,'$userName','$_lottaryNumber','$first_secon','$price_name','$Price',$curentTime)");
+			$db->Query("UPDATE `users` SET`coins`=$finalCoin WHERE id=$_userid");
+
+			$db->Query("INSERT INTO `showwinner`(`usrid`, `username`, `firstSecond`, `pricename`, `number`) VALUES ($_userid,'$userName','Second','$price_name',$_lottaryNumber)");
+
+		}
+
+
+		if(!empty($thirdWinner)){
+			$_userid=$thirdWinner['userid'];
+			$_lottaryNumber=$thirdWinner['lottaryNumber'];
+			$lottary=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='Third' LIMIT 1");	
 			$dummyuser=$db->QueryFetchArray("SELECT * FROM `users`  WHERE id=$_userid LIMIT 1");			
 		
 			$Price=$lottary['pricevalue'];
@@ -301,9 +278,28 @@ if(! defined('BASEPATH') ){ exit('Unable to view file.'); }
 			$db->Query("INSERT INTO `lottary_winner`(`userid`, `username`, `priceName`,`price`, `number`, `tim`) VALUES ($_userid,'$userName','$price_name','$Price',$_lottaryNumber,$curentTime)");
 			$db->Query("INSERT INTO `last3winner`(`userid`, `username`,`number`,`firstSecond`, `price`, `priceValue`, `time`) VALUES ($_userid,'$userName','$_lottaryNumber','$first_secon','$price_name','$Price',$curentTime)");
 			$db->Query("UPDATE `users` SET`coins`=$finalCoin WHERE id=$_userid");			
-			$db->Query("INSERT INTO `showwinner`(`usrid`, `username`, `firstSecond`, `pricename`, `number`) VALUES ($_userid,'$userName','Fourth','$price_name',$_lottaryNumber)");
+			$db->Query("INSERT INTO `showwinner`(`usrid`, `username`, `firstSecond`, `pricename`, `number`) VALUES ($_userid,'$userName','Third','$price_name',$_lottaryNumber)");
 		}
 
+		if(!empty($fourthWinner)){
+			$_userid=$fourthWinner['userid'];
+			$_lottaryNumber=$fourthWinner['lottaryNumber'];
+			$lottary=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='Fourth' LIMIT 1");	
+			$dummyuser=$db->QueryFetchArray("SELECT * FROM `users`  WHERE id=$_userid LIMIT 1");			
+			
+			$Price=$lottary['pricevalue'];
+			$price_name=$lottary['price_name'];
+			$first_secon=$lottary['first_secon'];
+
+			$userName=$dummyuser['username'];
+			$userCoin=$dummyuser['coins'];
+			$finalCoin=$userCoin+$Price;
+
+			$db->Query("INSERT INTO `lottary_winner`(`userid`, `username`, `priceName`,`price`, `number`, `tim`) VALUES ($_userid,'$userName','$price_name','$Price',$_lottaryNumber,$curentTime)");
+			$db->Query("INSERT INTO `last3winner`(`userid`, `username`,`number`,`firstSecond`, `price`, `priceValue`, `time`) VALUES ($_userid,'$userName','$_lottaryNumber','$first_secon','$price_name','$Price',$curentTime)");
+			$db->Query("UPDATE `users` SET`coins`=$finalCoin WHERE id=$_userid");			
+			$db->Query("INSERT INTO `showwinner`(`usrid`, `username`, `firstSecond`, `pricename`, `number`) VALUES ($_userid,'$userName','Fourth','$price_name',$_lottaryNumber)");
+		}
 		if(!empty($fifthWinner)){
 			$_userid=$fifthWinner['userid'];
 			$_lottaryNumber=$fifthWinner['lottaryNumber'];
@@ -388,7 +384,7 @@ if(! defined('BASEPATH') ){ exit('Unable to view file.'); }
 		if(!empty($ninthWinner)){
 			$_userid=$ninthWinner['userid'];
 			$_lottaryNumber=$ninthWinner['lottaryNumber'];
-			$lottary=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='ninthWinner' LIMIT 1");	
+			$lottary=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='Ninth' LIMIT 1");	
 			$dummyuser=$db->QueryFetchArray("SELECT * FROM `users`  WHERE id=$_userid LIMIT 1");			
 		
 			$Price=$lottary['pricevalue'];
@@ -402,7 +398,7 @@ if(! defined('BASEPATH') ){ exit('Unable to view file.'); }
 			$db->Query("INSERT INTO `lottary_winner`(`userid`, `username`, `priceName`,`price`, `number`, `tim`) VALUES ($_userid,'$userName','$price_name','$Price',$_lottaryNumber,$curentTime)");
 			$db->Query("INSERT INTO `last3winner`(`userid`, `username`,`number`,`firstSecond`, `price`, `priceValue`, `time`) VALUES ($_userid,'$userName','$_lottaryNumber','$first_secon','$price_name','$Price',$curentTime)");
 			$db->Query("UPDATE `users` SET`coins`=$finalCoin WHERE id=$_userid");			
-			$db->Query("INSERT INTO `showwinner`(`usrid`, `username`, `firstSecond`, `pricename`, `number`) VALUES ($_userid,'$userName','Nineth','$price_name',$_lottaryNumber)");
+			$db->Query("INSERT INTO `showwinner`(`usrid`, `username`, `firstSecond`, `pricename`, `number`) VALUES ($_userid,'$userName','Ninth','$price_name',$_lottaryNumber)");
 		}
 
 		$Timer=time();
@@ -434,7 +430,7 @@ $fifthpric=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='fift
 $sixthpric=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='sixth'");
 $seventhpric=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='seventh'");
 $eighthpric=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='eighth'");
-$ninepric=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='ninth'");
+$ninthpric=$db->QueryFetchArray("SELECT * FROM `lottary` WHERE first_secon='ninth'");
 
 // first price
 	if (count($firstpric)>0) {
@@ -470,7 +466,7 @@ if (count($fourthpric)>0) {
 	}	
 }
 // Fifth price
-if (count($fifthhpric)>0) {
+if (count($fifthpric)>0) {
 	if (!empty($fifthPrice)) {
 		$fvNumber=$db->QueryFetchArray("SELECT * FROM `lottarybuy` WHERE lottaryNumber='$fifthPrice' LIMIT 1");
 	}else{
@@ -555,42 +551,42 @@ if (count($ninthpric)>0) {
 				?>
 				   <div class="row">
 					   <label><strong><?php echo $frNumber['userename'] ?></strong></label>
-					   <div><input type="number" name="tprice" value="<?php echo $frNumber['lottaryNumber'] ?>" /></div>
+					   <div><input type="number" name="frprice" value="<?php echo $frNumber['lottaryNumber'] ?>" /></div>
 				   </div>
 			   <?php }
 			if(!empty($fvNumber)){
 				?>
 				   <div class="row">
 					   <label><strong><?php echo $fvNumber['userename'] ?></strong></label>
-					   <div><input type="number" name="tprice" value="<?php echo $fvNumber['lottaryNumber'] ?>" /></div>
+					   <div><input type="number" name="fvprice" value="<?php echo $fvNumber['lottaryNumber'] ?>" /></div>
 				   </div>
 			   <?php }
 			if(!empty($sxNumber)){
 				?>
 				   <div class="row">
 					   <label><strong><?php echo $sxNumber['userename'] ?></strong></label>
-					   <div><input type="number" name="tprice" value="<?php echo $sxNumber['lottaryNumber'] ?>" /></div>
+					   <div><input type="number" name="sxprice" value="<?php echo $sxNumber['lottaryNumber'] ?>" /></div>
 				   </div>
 			   <?php }
 			if(!empty($svNumber)){
 				?>
 				   <div class="row">
 					   <label><strong><?php echo $svNumber['userename'] ?></strong></label>
-					   <div><input type="number" name="tprice" value="<?php echo $svNumber['lottaryNumber'] ?>" /></div>
+					   <div><input type="number" name="svprice" value="<?php echo $svNumber['lottaryNumber'] ?>" /></div>
 				   </div>
 			   <?php }
 			if(!empty($etNumber)){
 				?>
 				   <div class="row">
 					   <label><strong><?php echo $etNumber['userename'] ?></strong></label>
-					   <div><input type="number" name="tprice" value="<?php echo $etNumber['lottaryNumber'] ?>" /></div>
+					   <div><input type="number" name="etprice" value="<?php echo $etNumber['lottaryNumber'] ?>" /></div>
 				   </div>
 			   <?php }
 			if(!empty($nnNumber)){
 				?>
 				   <div class="row">
 					   <label><strong><?php echo $nnNumber['userename'] ?></strong></label>
-					   <div><input type="number" name="tprice" value="<?php echo $nnNumber['lottaryNumber'] ?>" /></div>
+					   <div><input type="number" name="nnprice" value="<?php echo $nnNumber['lottaryNumber'] ?>" /></div>
 				   </div>
 			   <?php }		 
 			 
