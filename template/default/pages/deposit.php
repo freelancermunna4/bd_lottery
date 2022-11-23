@@ -27,7 +27,7 @@
 					<?="Deposit"?>
 				
 				</div>
-				<div class="content">
+				<div class="content"> 
 					<?=$errMessage?>
 					<!--<form method="post">-->
 					  <div class="form-row">
