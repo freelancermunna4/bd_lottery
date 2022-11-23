@@ -28,7 +28,7 @@
 					<div class="input-group mb-2 mr-sm-2">
 						<div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-user"></i></div></div>
 						<input type="text" class="form-control" name="user" placeholder="<?=$lang['b_18']?>" required>
-					</div>
+					</div> 
 				</div>
 				<div class="form-group">
 					<div class="input-group mb-2 mr-sm-2">
